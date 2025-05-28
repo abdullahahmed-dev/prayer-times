@@ -27,7 +27,7 @@ A modern Alfred workflow for displaying Islamic prayer times in multiple languag
 
 1. Visit [Diyanet Prayer Times](https://namazvakitleri.diyanet.gov.tr/en-US)
 2. Select your country and city
-3. Check the URL for `cityId/[YOUR_CODE]`
+3. Check the URL for `city's prayer time code`
 
 ![SCR 2025-05-28 at 23 01 00@2x](https://github.com/user-attachments/assets/8d193e3d-e4a8-450a-b0d7-5f10a275f5d0)
 
