@@ -1,4 +1,4 @@
-# 🕌 Alfred Prayer Times
+# 🕌 Alfred Prayer Times Workflow
 
 A modern Alfred workflow for displaying Islamic prayer times in multiple languages.
 
@@ -73,4 +73,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 
 **Made with ❤️ for the Muslim community**
 
-[⬆️ Back to Top](https://claude.ai/chat/b4193062-9c6b-4c5f-b501-eb647fac95a5#-alfred-prayer-times) • [📥 Download Latest](https://github.com/abdullahahmed-dev/prayer-times/releases/latest) • [🌟 Star Repository](https://github.com/abdullahahmed-dev/prayer-times/stargazers)
+[⬆️ Back to Top](https://github.com/abdullahahmed-dev/prayer-times#-alfred-prayer-times) • [📥 Download Latest](https://github.com/abdullahahmed-dev/prayer-times/releases/latest) • [🌟 Star Repository](https://github.com/abdullahahmed-dev/prayer-times/stargazers)
