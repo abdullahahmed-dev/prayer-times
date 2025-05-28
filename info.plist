@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>abdullahahmed-dev.prayer-times</string>
+	<key>connections</key>
+	<dict/>
+	<key>createdby</key>
+	<string>Abdullah Ahmed</string>
+	<key>description</key>
+	<string>Shows prayer times retrieved from</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Prayer Times</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>{var:keyword}</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Retrieving prayer times</string>
+				<key>script</key>
+				<string>/usr/local/bin/python3 namaz.py</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Get Prayer Times</string>
+				<key>title</key>
+				<string>Prayer Times</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A96626E9-81F4-430B-850A-3EADFCB0A350</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># About Alfred Prayer Times Workflow
+
+This workflow displays Islamic prayer times in multiple languages with countdown to next prayer.
+
+## Basic Usage
+
+1. **Trigger**: Type `prayer` (or your configured keyword) in Alfred
+2. **View Times**: See all 6 daily prayer times with Gregorian and Islamic dates
+3. **Next Prayer**: The upcoming prayer shows remaining time countdown
+4. **Languages**: Supports English, Turkish, and Arabic
+
+## Configuration
+
+Set these environment variables in Alfred workflow settings:
+
+- `CITY_CODE` - Your city's prayer time code (required)
+- `LANGUAGE` - `en`, `tr`, or `ar` (default: `en`)
+- `TIME_FORMAT` - `12` or `24` (default: `24`)
+- `KEYWORD` - Your trigger word (default: `prayer`)
+
+## Requirements
+
+- Alfred with Powerpack
+- Python 3 installed and in system PATH
+- Internet connection for real-time data
+
+## Quick Setup
+
+1. Find your city code at [namazvakitleri.diyanet.gov.tr](https://namazvakitleri.diyanet.gov.tr/en-US)
+2. Set `CITY_CODE` environment variable in Alfred
+3. Type `prayer` to see your prayer times</string>
+	<key>uidata</key>
+	<dict>
+		<key>A96626E9-81F4-430B-850A-3EADFCB0A350</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>xpos</key>
+			<real>460</real>
+			<key>ypos</key>
+			<real>115</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>prayer</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Keyword used to activate workflow</string>
+			<key>label</key>
+			<string>Keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>9541</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Your city's prayer time code</string>
+			<key>label</key>
+			<string>Option to Select City</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>CITY_CODE</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>en</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>English</string>
+						<string>en</string>
+					</array>
+					<array>
+						<string>Turkish</string>
+						<string>tr</string>
+					</array>
+					<array>
+						<string>Arabic</string>
+						<string>ar</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Display Language</string>
+			<key>label</key>
+			<string>Language</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>LANGUAGE</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>24</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>24 Hours Time</string>
+						<string>24</string>
+					</array>
+					<array>
+						<string>12 Hours Time</string>
+						<string>12</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Time format: 12-hour with AM/PM or 24-hour</string>
+			<key>label</key>
+			<string>Option to Select Time Format</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>TIME_FORMAT</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/abdullahahmed-dev</string>
+</dict>
+</plist>
