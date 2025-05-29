@@ -1,0 +1,37 @@
+{
+  "name": "alfred-prayer-times",
+  "version": "2.0.0",
+  "description": "Advanced Alfred workflow for Islamic prayer times with multi-day scheduling, prayer periods, and real-time countdowns",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "keywords": [
+    "alfred",
+    "workflow",
+    "prayer",
+    "times",
+    "islamic",
+    "salah",
+    "namaz",
+    "aladhan"
+  ],
+  "author": "Abdullah Ahmed (https://github.com/abdullahahmed-dev)",
+  "license": "MIT",
+  "dependencies": {
+    "alfy": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullahahmed-dev/prayer-times.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "bugs": {
+    "url": "https://github.com/abdullahahmed-dev/prayer-times/issues"
+  },
+  "homepage": "https://github.com/abdullahahmed-dev/prayer-times#readme"
+}

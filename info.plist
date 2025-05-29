@@ -3,13 +3,37 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>abdullahahmed-dev.prayer-times</string>
+	<string>abdullahahmed-dev.prayer-times1</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>AC12ADAD-DE74-44C4-AE88-7E2A7CB6F75E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>71D67CD5-72A3-4D29-A944-B8ED164E8600</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>83A1E939-1F37-4A9F-A50C-20630B399CF5</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>Abdullah Ahmed</string>
 	<key>description</key>
-	<string>Shows prayer times retrieved from</string>
+	<string>Shows prayer times retrieved from internet in real time</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -24,7 +48,7 @@
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
-				<false/>
+				<true/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -42,15 +66,15 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Retrieving prayer times</string>
+				<string>Loading prayer times</string>
 				<key>script</key>
-				<string>/usr/local/bin/python3 namaz.py</string>
+				<string>./node_modules/.bin/run-node index.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Get Prayer Times</string>
+				<string>Islamic Prayer Times</string>
 				<key>title</key>
 				<string>Prayer Times</string>
 				<key>type</key>
@@ -61,53 +85,125 @@
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>A96626E9-81F4-430B-850A-3EADFCB0A350</string>
+			<string>AC12ADAD-DE74-44C4-AE88-7E2A7CB6F75E</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>71D67CD5-72A3-4D29-A944-B8ED164E8600</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>{query}</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>83A1E939-1F37-4A9F-A50C-20630B399CF5</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># About Alfred Prayer Times Workflow
+	<string># About Prayer Times Workflow
 
-This workflow displays Islamic prayer times in multiple languages with countdown to next prayer.
+**GitHub Repository**: [https://github.com/abdullahahmed-dev/prayer-times](https://github.com/abdullahahmed-dev/prayer-times)
 
-## Basic Usage
+## What is this?
+Prayer Times is an Alfred workflow that displays accurate Islamic prayer times in real-time. It fetches data from the internet and shows all daily prayers including Fajr, Dhuhr, Asr, Maghrib, and Isha, along with additional times like Imsak, Sunrise, Sunset, Midnight, and Night Thirds.
 
-1. **Trigger**: Type `prayer` (or your configured keyword) in Alfred
-2. **View Times**: See all 6 daily prayer times with Gregorian and Islamic dates
-3. **Next Prayer**: The upcoming prayer shows remaining time countdown
-4. **Languages**: Supports English, Turkish, and Arabic
-
-## Configuration
-
-Set these environment variables in Alfred workflow settings:
-
-- `CITY_CODE` - Your city's prayer time code (required)
-- `LANGUAGE` - `en`, `tr`, or `ar` (default: `en`)
-- `TIME_FORMAT` - `12` or `24` (default: `24`)
-- `KEYWORD` - Your trigger word (default: `prayer`)
+## Key Features
+- **Real-time prayer times** from reliable Islamic authorities
+- **Multiple calculation methods** - 24 different Islamic calculation authorities
+- **School selection** - Choose between Shafi (Standard) and Hanafi schools
+- **Location flexibility** - Auto-detect via IP, manual address, or city/country
+- **Hijri calendar** - Shows Islamic date alongside Gregorian date
+- **Next prayer countdown** - See remaining time until next prayer
+- **Time formats** - 12-hour (AM/PM) or 24-hour display
 
 ## Requirements
+- macOS 10.12 or later
+- Alfred 4+ with Powerpack
+- Node.js (install via `brew install node`)
+- Internet connection
 
-- Alfred with Powerpack
-- Python 3 installed and in system PATH
-- Internet connection for real-time data
+## How to Use
+1. Type `prayer` in Alfred (or your custom keyword)
+2. View all prayer times for today
+3. Select any prayer and press Enter to copy to clipboard
+4. Press ⌘+Enter for large type display
 
-## Quick Setup
+## Configuration
+Access Alfred Preferences → Workflows → Prayer Times to customize:
+- Location settings (auto-detect, manual address, city/country)
+- Calculation method from 24 Islamic authorities
+- School of jurisprudence (Shafi or Hanafi)
+- Time format preferences
+- Advanced settings for high latitudes and midnight calculations
 
-1. Find your city code at [namazvakitleri.diyanet.gov.tr](https://namazvakitleri.diyanet.gov.tr/en-US)
-2. Set `CITY_CODE` environment variable in Alfred
-3. Type `prayer` to see your prayer times</string>
+## Credits
+- Al-Adhan Prayer Times API for reliable prayer time data
+- Alfy by Sindre Sorhus for simplified Alfred workflow development
+- Freepik for icon design
+- Various Islamic authorities for calculation methods
+
+*Built to help Muslims maintain their daily prayers with accurate timing information.*</string>
 	<key>uidata</key>
 	<dict>
-		<key>A96626E9-81F4-430B-850A-3EADFCB0A350</key>
+		<key>71D67CD5-72A3-4D29-A944-B8ED164E8600</key>
 		<dict>
-			<key>colorindex</key>
-			<integer>9</integer>
 			<key>xpos</key>
-			<real>460</real>
+			<real>345</real>
 			<key>ypos</key>
-			<real>115</real>
+			<real>125</real>
+		</dict>
+		<key>83A1E939-1F37-4A9F-A50C-20630B399CF5</key>
+		<dict>
+			<key>xpos</key>
+			<real>345</real>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>AC12ADAD-DE74-44C4-AE88-7E2A7CB6F75E</key>
+		<dict>
+			<key>xpos</key>
+			<real>55</real>
+			<key>ypos</key>
+			<real>125</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -118,14 +214,14 @@ Set these environment variables in Alfred workflow settings:
 				<key>default</key>
 				<string>prayer</string>
 				<key>placeholder</key>
-				<string></string>
+				<string>Enter keyword to trigger workflow</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Keyword used to activate workflow</string>
+			<string>Keyword used to activate the prayer times workflow</string>
 			<key>label</key>
 			<string>Keyword</string>
 			<key>type</key>
@@ -137,74 +233,305 @@ Set these environment variables in Alfred workflow settings:
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>9541</string>
-				<key>placeholder</key>
+				<false/>
+				<key>required</key>
+				<false/>
+				<key>text</key>
 				<string></string>
+			</dict>
+			<key>description</key>
+			<string>Automatically detect your location using IP geolocation (not recommended)</string>
+			<key>label</key>
+			<string>Auto-Detect Location</string>
+			<key>type</key>
+			<string>checkbox</string>
+			<key>variable</key>
+			<string>AUTO_DETECT_LOCATION</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Chicago, Illinois, IL, USA</string>
+				<key>placeholder</key>
+				<string>e.g, Times Square, New York, NY, USA</string>
 				<key>required</key>
 				<false/>
 				<key>trim</key>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>Your city's prayer time code</string>
+			<string>Full address for precise location (overrides auto-detection and city/country)</string>
 			<key>label</key>
-			<string>Option to Select City</string>
+			<string>Manual Address</string>
 			<key>type</key>
 			<string>textfield</string>
 			<key>variable</key>
-			<string>CITY_CODE</string>
+			<string>ADDRESS</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>en</string>
+				<string>Chicago</string>
+				<key>placeholder</key>
+				<string>e.g Karachi</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>City name (used if auto-detection is disabled and no address provided)</string>
+			<key>label</key>
+			<string>City</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>CITY</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>US</string>
+				<key>placeholder</key>
+				<string>e.g US, UK, PK</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Country code (2-letter ISO code)</string>
+			<key>label</key>
+			<string>Country Code</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>Country</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>1</string>
 				<key>pairs</key>
 				<array>
 					<array>
-						<string>English</string>
-						<string>en</string>
+						<string>Jafari / Shia Ithna-Ashari</string>
+						<string>0</string>
 					</array>
 					<array>
-						<string>Turkish</string>
-						<string>tr</string>
+						<string>University of Islamic Sciences, Karachi</string>
+						<string>1</string>
 					</array>
 					<array>
-						<string>Arabic</string>
-						<string>ar</string>
+						<string>Islamic Society of North America</string>
+						<string>2</string>
+					</array>
+					<array>
+						<string>Muslim World League</string>
+						<string>3</string>
+					</array>
+					<array>
+						<string>Umm Al-Qura University, Makkah</string>
+						<string>4</string>
+					</array>
+					<array>
+						<string>Egyptian General Authority of Survey</string>
+						<string>5</string>
+					</array>
+					<array>
+						<string>Institute of Geophysics, University of Tehran</string>
+						<string>7</string>
+					</array>
+					<array>
+						<string>Gulf Region</string>
+						<string>8</string>
+					</array>
+					<array>
+						<string>Kuwait</string>
+						<string>9</string>
+					</array>
+					<array>
+						<string>Qatar</string>
+						<string>10</string>
+					</array>
+					<array>
+						<string>Majlis Ugama Islam Singapura, Singapore</string>
+						<string>11</string>
+					</array>
+					<array>
+						<string>Union Organization islamic de France</string>
+						<string>12</string>
+					</array>
+					<array>
+						<string>Diyanet İşleri Başkanlığı, Turkey</string>
+						<string>13</string>
+					</array>
+					<array>
+						<string>Spiritual Administration of Muslims of Russia</string>
+						<string>14</string>
+					</array>
+					<array>
+						<string>Moonsighting Committee Worldwide</string>
+						<string>15</string>
+					</array>
+					<array>
+						<string>Dubai (experimental)</string>
+						<string>16</string>
+					</array>
+					<array>
+						<string>Jabatan Kemajuan Islam Malaysia (JAKIM)</string>
+						<string>17</string>
+					</array>
+					<array>
+						<string>Tunisia</string>
+						<string>18</string>
+					</array>
+					<array>
+						<string>Algeria</string>
+						<string>19</string>
+					</array>
+					<array>
+						<string>KEMENAG - Kementerian Agama Republik Indonesia</string>
+						<string>20</string>
+					</array>
+					<array>
+						<string>Morocco</string>
+						<string>21</string>
+					</array>
+					<array>
+						<string>Comunidade Islamica de Lisboa</string>
+						<string>22</string>
+					</array>
+					<array>
+						<string>Ministry of Awqaf, Islamic Affairs and Holy Places, Jordan</string>
+						<string>23</string>
 					</array>
 				</array>
 			</dict>
 			<key>description</key>
-			<string>Display Language</string>
+			<string>Islamic calculation method for prayer times - choose the one most appropriate</string>
 			<key>label</key>
-			<string>Language</string>
+			<string>Calculation Method</string>
 			<key>type</key>
 			<string>popupbutton</string>
 			<key>variable</key>
-			<string>LANGUAGE</string>
+			<string>CALCULATION_METHOD</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>24</string>
+				<string>0</string>
 				<key>pairs</key>
 				<array>
 					<array>
-						<string>24 Hours Time</string>
-						<string>24</string>
+						<string>Shafi (Standard)</string>
+						<string>0</string>
 					</array>
 					<array>
-						<string>12 Hours Time</string>
-						<string>12</string>
+						<string>Hanafi</string>
+						<string>1</string>
 					</array>
 				</array>
 			</dict>
 			<key>description</key>
-			<string>Time format: 12-hour with AM/PM or 24-hour</string>
+			<string>Islamic school of jurisprudence for prayer time calculations (affects Asr timing)</string>
 			<key>label</key>
-			<string>Option to Select Time Format</string>
+			<string>School of Jurisprudence</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>SCHOOL</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>auto</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Auto (Recommended)</string>
+						<string>auto</string>
+					</array>
+					<array>
+						<string>Standard (Mid Sunset to Sunrise)</string>
+						<string>0</string>
+					</array>
+					<array>
+						<string>Jafari (Mid Sunset to Fajr)</string>
+						<string>1</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Determines the method for calculating midnight prayer time</string>
+			<key>label</key>
+			<string>Midnight Mode</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>MIDNIGHT_MODE</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>auto</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Auto (Recommended)</string>
+						<string>auto</string>
+					</array>
+					<array>
+						<string>Middle of the Night</string>
+						<string>1</string>
+					</array>
+					<array>
+						<string>One Seventh</string>
+						<string>2</string>
+					</array>
+					<array>
+						<string>Angle Based</string>
+						<string>3</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Method for adjusting prayer times at higher latitudes (UK, Sweden, etc). Auto lets the API choose the best method</string>
+			<key>label</key>
+			<string>High Latitude Adjustment</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>LATITUDE_ADJUSTMENT</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>12</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>12 Hours (AM/PM)</string>
+						<string>12</string>
+					</array>
+					<array>
+						<string>24 Hours</string>
+						<string>24</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Time format: 12-hour with AM/PM or 24-hour format</string>
+			<key>label</key>
+			<string>Time Format</string>
 			<key>type</key>
 			<string>popupbutton</string>
 			<key>variable</key>
@@ -212,7 +539,7 @@ Set these environment variables in Alfred workflow settings:
 		</dict>
 	</array>
 	<key>version</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/abdullahahmed-dev</string>
 </dict>
