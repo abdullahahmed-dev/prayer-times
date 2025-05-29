@@ -1,76 +1,127 @@
-# 🕌 Alfred Prayer Times Workflow
+# 🕌 Prayer Times - Alfred Workflow
 
-A modern Alfred workflow for displaying Islamic prayer times in multiple languages.
+An elegant and comprehensive Alfred workflow that displays Islamic prayer times in real-time with support for multiple calculation methods, schools of jurisprudence, and location detection options.
 
-![SCR 2025-05-28 at 22 52 59](https://github.com/user-attachments/assets/f4eccac6-7089-4fa0-ad14-74aee4f0de93)
+![SCR 2025-05-29 at 14 55 55](https://github.com/user-attachments/assets/fe9d7e0c-ab9f-47b5-91bd-6ed4e2d6eb8d)
 
 
 ## ✨ Features
 
-- **Multi-Language Support**: English, Turkish, and Arabic
-- **6 Prayer Times**: Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha
-- **Smart Time Formats**: 12-hour (AM/PM) or 24-hour
-- **Next Prayer Countdown**: Shows remaining time in natural language
-- **Dual Calendar**: Gregorian and Islamic (Hijri) dates
-- **Real-time Updates**: Fresh data every time for accurate countdowns
+- **Real-time Prayer Times**: Fetches current prayer times from the internet
+- **Multiple Location Methods**: Auto-detect via IP, manual address, or city/country
+- **24 Calculation Methods**: Support for various Islamic authorities worldwide
+- **School of Jurisprudence**: Choose between Shafi (Standard) and Hanafi schools
+- **Comprehensive Prayer List**: Imsak, Fajr, Sunrise, Dhuhr, Asr, Sunset, Maghrib, Isha, Midnight, and Night Thirds
+- **Hijri Calendar**: Displays Islamic date alongside Gregorian date
+- **Next Prayer Countdown**: Shows remaining time until the next prayer
+- **Flexible Time Formats**: 12-hour (AM/PM) or 24-hour format
+- **Large Type Display**: Press ⌘+Enter for large prayer time display
+- **Copy to Clipboard**: Press ⌘+C to copy prayer times
+- **High Latitude Support**: Special adjustments for northern regions
 
 ## 🚀 Installation
 
-1. Download the `.alfredworkflow` file from [Releases](https://github.com/abdullahahmed-dev/prayer-times/releases)
-2. Double-click to install in Alfred
-3. Configure your environment variables (see Configuration below)
-4. Type your keyword in Alfred to see prayer times
+### Prerequisites
 
-## 🏙️ Finding Your City Code
+**Install Node.js** via [Homebrew](https://formulae.brew.sh/formula/node) (recommended):
+   ```bash
+   brew install node
+   ```
 
-### Method 1: Official Website
+### Install Workflow
 
-1. Visit [Diyanet Prayer Times](https://namazvakitleri.diyanet.gov.tr/en-US)
-2. Select your country and city
-3. Check the URL for `city's prayer time code`
+1. Download the latest release from the [Releases](https://github.com/abdullahahmed-dev/prayer-times/releases) page
+2. Double-click the `.alfredworkflow` file to install
+3. Alfred will automatically import the workflow
 
-![SCR 2025-05-28 at 23 01 00@2x](https://github.com/user-attachments/assets/8d193e3d-e4a8-450a-b0d7-5f10a275f5d0)
+## ⚙️ Configuration
 
-### Examples: Popular Cities
+<img src="https://github.com/user-attachments/assets/8cd9677d-3564-4dbc-8ba5-77b832300c7c" width="400" alt="Configuration Interface">
 
-|City|Code|City|Code|
-|---|---|---|---|
-|**Turkey**||**Middle East**||
-|Istanbul|`9541`|Mecca|`8862`|
-|Ankara|`9206`|Medina|`8863`|
-|Izmir|`9252`|Dubai|`784`|
-|Bursa|`9335`|Riyadh|`8904`|
-|**Europe**||**Americas**||
-|London|`9206`|New York|`9425`|
-|Berlin|`9071`|Los Angeles|`9544`|
-|Paris|`9082`|Toronto|`9792`|
-|Vienna|`9142`|Chicago|`9470`|
-|**Asia**||**Australia**||
-|Karachi|`9524`|Sydney|`9993`|
-|Delhi|`9218`|Melbourne|`9994`|
-|Jakarta|`9290`|Perth|`9995`|
-|Singapore|`9349`|Brisbane|`9996`|
+After installation, configure the workflow by opening Alfred Preferences → Workflows → Prayer Times:
 
-## 🛠️ Troubleshooting
+- **Auto-Detect Location**: Uses IP geolocation (not recommended for accuracy)
+- **Manual Address**: Enter full address (e.g., "Times Square, New York, NY, USA")
+- **City**: City name for prayer time calculation
+- **Country Code**: 2-letter ISO country code (e.g., US, UK, PK)
+- **Calculation Method**: Choose from 24 Islamic authorities:
+    - University of Islamic Sciences, Karachi (Default)
+    - Islamic Society of North America
+    - Muslim World League
+    - Umm Al-Qura University, Makkah
+    - Egyptian General Authority of Survey
+    - And 19 more regional authorities
+- **School of Jurisprudence**:
+    - **Shafi (Standard)**: Earlier Asr time
+    - **Hanafi**: Later Asr time
+- **Midnight Mode**: Standard, Jafari, or Auto
+- **High Latitude Adjustment**: For regions like UK, Sweden, etc.
+- **Time Format**: 12-hour (AM/PM) or 24-hour
 
-- **Wrong prayer times**: Verify your city code is correct
-- **No results**: Check internet connection and city code
-- **Python error**: This workflow requires Python 3 to be installed and executable in your system PATH
+## 🎯 Usage
+
+1. **Trigger the workflow**: Type `prayer` in Alfred (or your custom keyword)
+2. **View prayer times**: See all daily prayer times with the next prayer highlighted
+3. **Copy prayer time**: Select any prayer and press Enter or ⌘+C
+4. **Large display**: Select any prayer and press ⌘+Enter for large type view
+
+## 🛠️ Technical Details
+
+- **API**: Uses the reliable [Al-Adhan Prayer Times API](https://aladhan.com/prayer-times-api)
+- **Location Detection**: IP-based geolocation with manual override options
+- **Error Handling**: Graceful fallbacks for network issues and invalid locations
+- **Performance**: Lightweight with minimal system impact
+- **Compatibility**: Works with all modern Alfred versions on macOS
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+## 📋 Requirements
+
+- macOS 10.12 or later
+- Alfred 4+ with Powerpack
+- Node.js (install via [Homebrew](https://formulae.brew.sh/formula/node))
+- Internet connection for fetching prayer times
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+- **No prayer times displayed**: Check your internet connection and location settings
+- **Incorrect times**: Verify your calculation method and school of jurisprudence
+- **Location not found**: Try using a more specific address or enable auto-detection
+
+### Getting Help
+
+If you encounter any issues:
+
+1. Check the [Issues](https://github.com/abdullahahmed-dev/prayer-times/issues) page
+2. Create a new issue with detailed information about the problem
+3. Include your configuration settings and error messages
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://claude.ai/chat/LICENSE) file for details.
 
 ## 🙏 Credits
 
-- **Based on**: The now-deprecated [alfred-prayer-times](https://github.com/imesut/alfred-prayer-times) by [imesut](https://github.com/imesut)
-- **Icons**: [Freepik](https://www.freepik.com/)
-- **API Providers**:
-    - [Diyanet İşleri Başkanlığı](https://namazvakitleri.diyanet.gov.tr/)
-    - [emuSHAF Namaz Vakitleri](https://ezanvakti.emushaf.net/)
+- **[Al-Adhan API](https://aladhan.com/prayer-times-api#get-/timingsByAddress/-date-)** - Reliable Islamic prayer times API
+- **[Alfy](https://github.com/sindresorhus/alfy)** by Sindre Sorhus - Simplified Alfred workflow creation
+- **[Freepik](https://www.freepik.com/)** for providing workflow icon
+- **Islamic Authorities** - For providing accurate prayer time calculation methods
+
+## 📞 Support
+
+If you find this workflow useful, please consider:
+
+- ⭐ Starring this repository
+- 🐛 Reporting bugs or suggesting features
+- 🤝 Contributing to the codebase
 
 ---
 
-**Made with ❤️ for the Muslim community**
+**Author**: Abdullah Ahmed  
+**Repository**: https://github.com/abdullahahmed-dev/prayer-times  
 
-[⬆️ Back to Top](https://github.com/abdullahahmed-dev/prayer-times#-alfred-prayer-times) • [📥 Download Latest](https://github.com/abdullahahmed-dev/prayer-times/releases/latest) • [🌟 Star Repository](https://github.com/abdullahahmed-dev/prayer-times/stargazers)
+_May this workflow help you in maintaining your daily prayers. Ameen._
